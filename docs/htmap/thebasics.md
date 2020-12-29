@@ -5,51 +5,76 @@ sidebar_label: The Basics
 ---
 ___
 Here we will teach you all of the items of code that are required in order for the plugin to work.  
+
+## Namespaces
+namespaces is the folders your plugin is located in after ```src/``` folder
+
+for an example the namespace for a class located in ```src/FirstPlugin/PoggitSucks/``` would be ```FirstPlugin\PoggitSucks```
+
+**note** you need to declare the namespace on top of every class like:
+
 ```
 <?php
+//located in src/X/
+namespace X;
 
-namespace ExampleName;
-//This should be the subfolder of the src directory. Based off of the folder structure example in "plugin.yml".
+class A{}
+```
 
-// Next, we need to add a "use" statement:
+## Plugin
+
+
+first of all we should know that a plugin extends ```pocketmine\plugin\PluginBase``` that can be done by doing the following ```class x extends pocketmine\plugin\PluginBase```
+
+instead of using ```pocketmine\plugin\PluginBase``` you can import that class at the top of your plugin by doing the following ```use pocketmine\plugin\PluginBase```
+
+lets wrap it up in a single code:
+```
+<?php
+//located in /src/FirstPlugin/
+namespace FirstPlugin;
+
+//import the PluginBase class
 use pocketmine\plugin\PluginBase;
-
-// Then, we type the class statement:
-class Main extends PluginBase {  
-/*
-* This has a very simple format:
-* class (The File Name) extends PluginBase {
-*/
+//you can name the class whatever you want for this tutorial we will be using "Main"
+//extending PluginBase
+class Main extends PluginBase{
 
 }
 ```
-## onEnable() Function  
-After the Class statement we add the onEnable() function and in it we add a message to the console everytime the plugin enables.
+that simple code above is considered as a plugin, but that plugin does nothing
+
+
+
+##Plugin Functions
+
+there is 3 functions that gets called when pocketmine is trying to load/enable/disable the plugin
+**onLoad()** this function gets called when pocketmine is trying to loading the plugin
+**onEnable()** this function gets called when pocketmine trying to enabling the plugin
+**onDisable()** this function gets called when pocketmine is disabling the plugin
+
+##All in one
+
+lets use all the stuff we learned here in a single code:
+
 ```
-<?php
+//located in /src/FirstPlugin/
+namespace FirstPlugin;
 
-namespace ExampleName;
-
+//import the PluginBase class
 use pocketmine\plugin\PluginBase;
+//you can name the class whatever you want for this tutorial we will be using "Main"
+//extending PluginBase
+class Main extends PluginBase{
+	public function onLoad(){
+		//loading the plugin
+	}
 
-class Main extends PluginBase { 
-
-  public function onEnable() {  // the onEnable() function
-    $this->getLogger()->info("Plugin has been Enabled"); //A message every time the plugin enables
-  }
-
+	public function onLoad(){
+		//loading the plugin
+	}
+	
+	public function onDisable(){
+		//disabling the plugin
+	}
 }
-```
-
-You can also use onLoad() and onDisable() function the same way.
-
-```
-  public function onLoad(){
-    $this->getLogger()->info("Loading Plugin");
-  }
-
-  public function onDisable(){
-    $this->getLogger()->info("Plugin Disabled");
-  }
-```
-
