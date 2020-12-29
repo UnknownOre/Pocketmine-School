@@ -73,7 +73,7 @@ class Main extends PluginBase{
 		//loading the plugin
 	}
 
-	public function onLoad(){
+	public function onEnable(){
 		//loading the plugin
 	}
 	
