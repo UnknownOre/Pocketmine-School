@@ -46,7 +46,7 @@ that simple code above is considered as a plugin, but that plugin does nothing
 
 
 
-## Plugin default Functions
+## default plugin Functions
 
 there is 3 functions that gets called when pocketmine is trying to load/enable/disable the plugin
 
