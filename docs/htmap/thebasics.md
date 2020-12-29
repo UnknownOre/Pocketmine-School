@@ -46,14 +46,14 @@ that simple code above is considered as a plugin, but that plugin does nothing
 
 
 
-##Plugin Functions
+## Plugin Functions
 
 there is 3 functions that gets called when pocketmine is trying to load/enable/disable the plugin
 **onLoad()** this function gets called when pocketmine is trying to loading the plugin
 **onEnable()** this function gets called when pocketmine trying to enabling the plugin
 **onDisable()** this function gets called when pocketmine is disabling the plugin
 
-##All in one
+## All in one
 
 lets use all the stuff we learned here in a single code:
 
